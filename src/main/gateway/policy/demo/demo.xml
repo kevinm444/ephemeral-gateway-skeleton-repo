@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Demo on Kubernetes</title>
+    <title>Demo on Docker</title>
     <style>
       .blink-one {
         color: ${gateway.envPropColor};
@@ -17,7 +17,7 @@
     </style>
   </head>
   <body>
-    <h1>Demo on Kubernetes</h1>
+    <h1>Demo on Docker</h1>
 
     <h1 class="blink-one">
       <blink>My color can be changed by environment property only.</blink>
