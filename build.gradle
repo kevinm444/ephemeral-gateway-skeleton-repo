@@ -36,6 +36,9 @@ GatewayConnection {
 
 GatewayExportConfig {
     folderPath = '/demo'
+//    exportEntities = [
+//            jmsDestinations: ["ActiveMQ-Inbound"]
+//    ]
 }
 
 repositories {
