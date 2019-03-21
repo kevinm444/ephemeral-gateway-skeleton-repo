@@ -22,7 +22,6 @@ services:
       ACCEPT_LICENSE: "true"
       SSG_ADMIN_USERNAME: "admin"
       SSG_ADMIN_PASSWORD: "password"
-
 secrets:
   license:
     file: ./docker/license.xml
