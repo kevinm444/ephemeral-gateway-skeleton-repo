@@ -32,7 +32,7 @@ pipeline {
             steps {
                 sh """docker login ${env.BASE_IMAGE_REGISTRY_HOSTNAME} -u ${params.BASE_IMAGE_REGISTRY_USER} --password ${params.BASE_IMAGE_REGISTRY_PASSWORD}
                         docker pull ${env.BASE_IMAGE_REGISTRY_HOSTNAME}/repository/${env.BASE_IMAGE_REGISTRY_REPOSITORY}/${env.BASE_IMAGE_NAME}:${env.BASE_IMAGE_TAG}
-                        ./gradlew -DimageName=${env.NEW_IMAGE_NAME} -DimageTag=${env.NEW_IMAGE_TAG + "_" + $GIT_COMMIT + "_" + $env.GIT_COMMIT} buildDockerImage"""
+                        ./gradlew -DimageName=${env.NEW_IMAGE_NAME} -DimageTag=${env.NEW_IMAGE_TAG + "_" + $env.GIT_COMMIT} buildDockerImage"""
             }
         }
         stage('Testing Docker image') {
