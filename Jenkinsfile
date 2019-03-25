@@ -10,7 +10,7 @@ pipeline {
         BASE_IMAGE_REGISTRY_HOSTNAME = 'docker.stable1.apimgcp.com'
         BASE_IMAGE_REGISTRY_REPOSITORY    = 'docker-hosted'
         NEW_IMAGE_NAME = 'gateway'
-        NEW_IMAGE_TAG = new Date().getTime() + "_" + env.GIT_LAST_COMMIT
+        NEW_IMAGE_TAG = new Date().getTime() + "_" + GIT_LAST_COMMIT
         NEW_IMAGE_REGISTRY_HOSTNAME = 'docker.stable1.apimgcp.com'
         NEW_IMAGE_REGISTRY_REPOSITORY    = 'docker-hosted'
     }
