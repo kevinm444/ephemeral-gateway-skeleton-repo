@@ -4,15 +4,15 @@ pipeline {
 
     environment {
         GIT_REPOSITORY = 'https://github.com/amoghsa/ephemeral-gateway-skeleton-repo.git'
+        GIT_LAST_COMMIT = sh ([script: "git rev-parse HEAD", returnStdout: true]).trim()
         BASE_IMAGE_NAME = 'gateway'
         BASE_IMAGE_TAG = 'wlui-test'
         BASE_IMAGE_REGISTRY_HOSTNAME = 'docker.stable1.apimgcp.com'
         BASE_IMAGE_REGISTRY_REPOSITORY    = 'docker-hosted'
         NEW_IMAGE_NAME = 'gateway'
-        NEW_IMAGE_TAG = new Date().getTime()
+        NEW_IMAGE_TAG = new Date().getTime() + "_" + env.GIT_LAST_COMMIT
         NEW_IMAGE_REGISTRY_HOSTNAME = 'docker.stable1.apimgcp.com'
         NEW_IMAGE_REGISTRY_REPOSITORY    = 'docker-hosted'
-        GIT_LAST_COMMIT = sh ([script: "git rev-parse HEAD", returnStdout: true]).trim()
     }
 
     stages {
@@ -32,7 +32,7 @@ pipeline {
             steps {
                 sh """docker login ${env.BASE_IMAGE_REGISTRY_HOSTNAME} -u ${params.BASE_IMAGE_REGISTRY_USER} --password ${params.BASE_IMAGE_REGISTRY_PASSWORD}
                         docker pull ${env.BASE_IMAGE_REGISTRY_HOSTNAME}/repository/${env.BASE_IMAGE_REGISTRY_REPOSITORY}/${env.BASE_IMAGE_NAME}:${env.BASE_IMAGE_TAG}
-                        ./gradlew -DimageName=${env.NEW_IMAGE_NAME} -DimageTag=${env.NEW_IMAGE_TAG + "_" + env.GIT_LAST_COMMIT} buildDockerImage"""
+                        ./gradlew -DimageName=${env.NEW_IMAGE_NAME} -DimageTag=${env.NEW_IMAGE_TAG} buildDockerImage"""
             }
         }
         stage('Testing Docker image') {
