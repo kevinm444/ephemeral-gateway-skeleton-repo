@@ -3,13 +3,13 @@ pipeline {
     agent any
 
     environment {
-        GIT_REPOSITORY = 'https://github.com/amoghsa/ephemeral-gateway-skeleton-repo.git'
+        GIT_REPOSITORY = '<git.repository>'
         GIT_LAST_COMMIT = sh ([script: "git rev-parse HEAD", returnStdout: true]).trim()
         BASE_IMAGE_NAME = 'gateway'
-        BASE_IMAGE_TAG = 'wlui-test'
+        BASE_IMAGE_TAG = '95'
         BASE_IMAGE_REGISTRY_HOSTNAME = 'docker.stable1.apimgcp.com'
         BASE_IMAGE_REGISTRY_REPOSITORY    = 'docker-hosted'
-        NEW_IMAGE_NAME = 'gateway'
+        NEW_IMAGE_NAME = '<image.name>'
         CURRENT_TIME = new Date().getTime()
         NEW_IMAGE_TAG = "${CURRENT_TIME}_${GIT_LAST_COMMIT}"
         NEW_IMAGE_REGISTRY_HOSTNAME = 'docker.stable1.apimgcp.com'
