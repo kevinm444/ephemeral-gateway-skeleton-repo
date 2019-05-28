@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        GIT_REPOSITORY = 'https://github.com/kevinm444/ephemeral-gateway-skeleton-repo.git/'
+        GIT_REPOSITORY = 'https://github.com/kevinm444/ephemeral-gateway-skeleton-repo.git/docker '
         GIT_LAST_COMMIT = sh ([script: "git rev-parse HEAD", returnStdout: true]).trim()
         BASE_IMAGE_NAME = 'gateway'
         BASE_IMAGE_TAG = '94'
@@ -22,8 +22,8 @@ pipeline {
         }
         stage('Gradle Preparation & Build') {
             steps {
-                sh '''./gradlew clean
-                        ./gradlew build'''
+                sh '''gradlew clean
+                        gradlew build'''
 
             }
         }
