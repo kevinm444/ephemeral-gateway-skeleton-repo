@@ -1,0 +1,9 @@
+quota/quota:
+  url: "/quota"
+  policy: "quota/quota"
+  httpMethods:
+  - "DELETE"
+  - "POST"
+  - "GET"
+  - "PUT"
+  properties: {}
