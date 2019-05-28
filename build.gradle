@@ -25,17 +25,17 @@ plugins {
 apply plugin: 'com.ca.apim.gateway.gateway-export-plugin'
 apply plugin: 'com.ca.apim.gateway.gateway-developer-plugin'
 
-group '<group.id>'
+group 'broadcom'
 version = '1.0.0'
 
 GatewayConnection {
-    url = 'https://<gateway.host>:8443/restman'
+    url = 'https://10.175.247.121:8443/restman'
     userName = 'admin'
     userPass = 'password'
 }
 
 GatewayExportConfig {
-    folderPath = '/<folder.path>'
+    folderPath = '/demo'
 }
 
 repositories {
