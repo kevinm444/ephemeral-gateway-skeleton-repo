@@ -22,8 +22,8 @@ pipeline {
         }
         stage('Gradle Preparation & Build') {
             steps {
-                sh '''gradle clean
-                        gradle build'''
+                sh '''./gradlew clean
+                        ./gradlew build'''
 
             }
         }
