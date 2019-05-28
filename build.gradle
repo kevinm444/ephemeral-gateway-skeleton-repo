@@ -29,13 +29,13 @@ group 'broadcom'
 version = '1.0.0'
 
 GatewayConnection {
-    url = 'https://10.175.247.121:8443/restman'
+    url = 'https://<host name>:8443/restman'
     userName = 'admin'
     userPass = 'password'
 }
 
 GatewayExportConfig {
-    folderPath = '/demo'
+    folderPath = '<project folder>'
 }
 
 repositories {

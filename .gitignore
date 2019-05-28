@@ -6,8 +6,8 @@
 .gradle/
 /.idea/
 /*.iml
-build/
 /out/
+/build
 .DS_Store
 .java-version
 
