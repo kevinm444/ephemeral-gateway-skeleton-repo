@@ -1,4 +1,3 @@
-import java.time.*
 pipeline {
     agent any
 
@@ -10,8 +9,7 @@ pipeline {
         BASE_IMAGE_REGISTRY_HOSTNAME = 'docker.stable1.apimgcp.com'
         BASE_IMAGE_REGISTRY_REPOSITORY    = 'docker-hosted'
         NEW_IMAGE_NAME = 'gateway'
-        CURRENT_TIME = new Date().getTime()
-        NEW_IMAGE_TAG = "${CURRENT_TIME}_${GIT_LAST_COMMIT}"
+        NEW_IMAGE_TAG = "v${BUILD_NUMBER}_${GIT_LAST_COMMIT}"
         NEW_IMAGE_REGISTRY_HOSTNAME = 'docker.stable1.apimgcp.com'
         NEW_IMAGE_REGISTRY_REPOSITORY    = 'docker-hosted'
     }
